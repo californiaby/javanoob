@@ -5,14 +5,13 @@ import com.bakulin.support.ListNode;
 public class ReverseLinkedList {
 	
 	public ListNode reverse(ListNode list) {
-		
 		// Reverse of empty list is null
 		if (list == null) {return null;}
 		
 		// Reverse of single item list is itself
 		if (list.next == null) {return list;}
 		
-		// Reverse of n element list? Reverse of 2nd element, followed fy 1st
+		// Reverse of n element list? Reverse of 2nd element, followed by 1st
 		ListNode second = list.next;
 		
 		// Unlinking from original list
@@ -26,5 +25,16 @@ public class ReverseLinkedList {
 		
 		return reverseRest;
 	}
-
+	
+	public ListNode reverseIterative(ListNode list) {
+		ListNode newHead = null;
+		while (list != null) {
+			ListNode next = list.next;
+			list.next = newHead;
+			newHead = list;
+			list = next;
+		}
+		return newHead;
+	}
+	
 }

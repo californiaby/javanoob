@@ -13,9 +13,13 @@ public class StringProblemsTest {
 	}
 	
 	@Test
-	public void testReverseRecursive() {
-		String s = "good luck";
-		System.out.println(new StringProblems().reverseStringRecursive(s));
+	public void testFormat() {
+		new StringProblems().stringFormat();;
+	}
+	
+	@Test
+	public void testAnagram() {
+		System.out.println(new StringProblems().isAnagram("abc", "bca"));
 	}
 
 }

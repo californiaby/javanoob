@@ -27,34 +27,6 @@ public class BinaryTree {
 	}
 	
 	/**
-	 * Checks if binary tree is a mirror if itself (i.e. symmetric around center). 
-	 */
-	public boolean isSymmetric(TreeNode root) {
-		return (root == null || areChildrenSymmetric(root.left,  root.right));
-	}
-	
-	private boolean areChildrenSymmetric(TreeNode left, TreeNode right) {
-		if (left == null || right == null) {			// Check if achieved end of branch
-			return  left == right;						// Compare values (or objects) if we did
-		}
-		if (left.val != right.val) {					// Otherwise check if still symmetric
-			return false;								// Return false if not
-		}
-		// If both checks are not met, got deeper, compare symmetrical pairs
-		return areChildrenSymmetric(left.left, right.right) && areChildrenSymmetric(left.right, right.left);
-	}
-	
-	// TODO: implement solution with stack
-	public boolean isSymmetricWithStack() {
-		return false;
-	}
-	
-	// TODO: implement solution with queue
-	public boolean isSymmetricWithQueue() {
-		return false;
-	}
-	
-	/**
 	 * Return bottom left value of the tree (i.e. lowest row, first value left to right).
 	 */
 	public int findBottomLeftValue(TreeNode root) {
@@ -71,25 +43,5 @@ public class BinaryTree {
 		}
 		return root.val;
     }
-	/**
-	 * Return Binary Tree Level Order Traversal
-	 */
-	public List<List<Integer>> levelOrder(TreeNode root) {
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		levelHelper(result, root, 0);
-		return result;
-	}
-
-	private void levelHelper(List<List<Integer>> result, TreeNode root, int height) {
-		if (root != null) {
-			if (height >= result.size()) {
-				result.add(new LinkedList<Integer>());
-			}
-			result.get(height).add(root.val);
-			levelHelper(result, root.left, height+1);
-			levelHelper(result, root.right, height+1);
-			
-		}
-	}
 
 }

@@ -1,15 +1,14 @@
 package com.bakulin.leet;
 
-import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.bakulin.support.TreeNode;
 
-public class BinaryTreeTest {
+public class BinaryTreeOrderTraversalTest {
 	
-	TreeNode root;
+TreeNode root;
 	
 	@Before
 	public void setup() {
@@ -19,16 +18,10 @@ public class BinaryTreeTest {
 		root.left.right = new TreeNode(3);
 		root.left.left= new TreeNode(4);
 	}
-	
+
 	@Test
-	public void testMaxDepth() {
-        int depth = new BinaryTree().maxDepth(root);
-        System.out.println(depth);
-	}
-		
-	@Test
-	public void testFindBottomLeftValue() {
-		System.out.println(new BinaryTree().findBottomLeftValue(root));
+	public void test() {
+		new BinaryTreeOrderTraversal().levelOrderDFS(root);
 	}
 
 }
